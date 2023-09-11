@@ -1,5 +1,7 @@
 import 'styles/index.scss'
 
-const App = () => <div />
+import ChartPage from 'pages/ChartPage'
+
+const App = () => <ChartPage />
 
 export default App
