@@ -11,20 +11,19 @@ import {
   YAxis,
 } from 'recharts'
 import { CategoricalChartFunc } from 'recharts/types/chart/generateCategoricalChart'
-import { District } from 'types'
+import { ConvertedData, District } from 'types'
 import getColor from 'utils/color'
-import { convertData, convertDate } from 'utils/convert'
+import { convertDate } from 'utils/convert'
 
 import CustomTooltip from './CustomTooltip'
 
 interface ChartProps {
   selectedValue?: string
   setFilter: (district: District | undefined) => void
+  data: ConvertedData[] | undefined
 }
 
-const Chart: FC<ChartProps> = ({ selectedValue, setFilter }) => {
-  const data = convertData()
-
+const Chart: FC<ChartProps> = ({ selectedValue, setFilter, data }) => {
   const handleClickChart: CategoricalChartFunc = ({ activePayload }) => {
     if (!activePayload || !activePayload.length) return
     const {
@@ -45,14 +44,15 @@ const Chart: FC<ChartProps> = ({ selectedValue, setFilter }) => {
         <YAxis dataKey="area" orientation="right" yAxisId="area" />
         <Legend />
         <Bar barSize={10} dataKey="bar" yAxisId="bar">
-          {data.map((entry) => (
-            <Cell
-              fill={
-                entry.district === selectedValue ? '#3b5bdb' : getColor(entry.district)
-              }
-              key={entry.date}
-            />
-          ))}
+          {data &&
+            data.map((entry) => (
+              <Cell
+                fill={
+                  entry.district === selectedValue ? '#3b5bdb' : getColor(entry.district)
+                }
+                key={entry.date}
+              />
+            ))}
         </Bar>
         <Area dataKey="area" type="monotone" yAxisId="area" />
         <Tooltip content={<CustomTooltip />} />
