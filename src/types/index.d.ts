@@ -11,3 +11,10 @@ export type MockData = {
     [key: Date]: Data
   }
 }
+
+export type ConvertedData = {
+  date: string
+  district: string
+  area: number
+  bar: number
+}
