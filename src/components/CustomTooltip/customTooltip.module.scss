@@ -1,0 +1,10 @@
+@use 'styles/constants/colors' as color;
+
+.customTooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  background-color: rgba($color: color.$GRAY1, $alpha: 50%);
+  border-radius: 8px;
+}

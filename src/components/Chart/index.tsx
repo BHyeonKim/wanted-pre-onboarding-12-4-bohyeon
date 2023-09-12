@@ -15,13 +15,15 @@ import { ConvertedData } from 'types'
 import getColor from 'utils/color'
 import { convertDate } from 'utils/convert'
 
-import CustomTooltip from './CustomTooltip'
+import CustomTooltip from '../CustomTooltip'
 
 interface ChartProps {
   selectedValue?: string
   setFilter: (district: string | undefined) => void
   data: ConvertedData[] | undefined
 }
+
+const ACCENT_COLOR = '#3b5bdb'
 
 const Chart: FC<ChartProps> = ({ selectedValue, setFilter, data }) => {
   const handleClickChart: CategoricalChartFunc = ({ activePayload }) => {
@@ -48,7 +50,9 @@ const Chart: FC<ChartProps> = ({ selectedValue, setFilter, data }) => {
             data.map((entry) => (
               <Cell
                 fill={
-                  entry.district === selectedValue ? '#3b5bdb' : getColor(entry.district)
+                  entry.district === selectedValue
+                    ? ACCENT_COLOR
+                    : getColor(entry.district)
                 }
                 key={entry.date}
               />
