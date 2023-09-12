@@ -11,7 +11,7 @@ import {
   YAxis,
 } from 'recharts'
 import { CategoricalChartFunc } from 'recharts/types/chart/generateCategoricalChart'
-import { ConvertedData, District } from 'types'
+import { ConvertedData } from 'types'
 import getColor from 'utils/color'
 import { convertDate } from 'utils/convert'
 
@@ -19,7 +19,7 @@ import CustomTooltip from './CustomTooltip'
 
 interface ChartProps {
   selectedValue?: string
-  setFilter: (district: District | undefined) => void
+  setFilter: (district: string | undefined) => void
   data: ConvertedData[] | undefined
 }
 

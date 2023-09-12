@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import services from 'services'
 import { ConvertedData } from 'types'
-import { convertData } from 'utils/convert'
+import { convertData, getDistrictList } from 'utils/convert'
 
 const useFetchData = () => {
   const [data, setData] = useState<ConvertedData[]>()
@@ -16,7 +16,9 @@ const useFetchData = () => {
     fetchData()
   }, [])
 
-  return data
+  const districts = getDistrictList(data)
+
+  return { data, districts }
 }
 
 export default useFetchData

@@ -5,7 +5,7 @@ export type District = '성북구' | '강남구' | '노원구' | '중랑구'
 export type Date = string
 
 export type MockData = {
-  type: District
+  type: string
   version: number
   response: {
     [key: Date]: Data
