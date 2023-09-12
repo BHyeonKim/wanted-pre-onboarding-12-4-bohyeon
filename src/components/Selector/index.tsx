@@ -9,22 +9,32 @@ const cx = classNames.bind(styles)
 const DISTRICT = ['성북구', '강남구', '노원구', '중랑구']
 
 interface SelectorProps {
-  onClick: MouseEventHandler<HTMLButtonElement>
   selectedDistrict?: District
+  setDistrict: (district: District | undefined) => void
 }
 
-const Selector: FC<SelectorProps> = ({ onClick, selectedDistrict }) => (
-  <div className={cx('selector')}>
-    {DISTRICT.map((district) => (
-      <button
-        className={cx('button', { selected: selectedDistrict === district })}
-        key={district}
-        onClick={onClick}
-      >
-        {district}
-      </button>
-    ))}
-  </div>
-)
+const Selector: FC<SelectorProps> = ({ setDistrict, selectedDistrict }) => {
+  const handleSelectFilter: MouseEventHandler<HTMLButtonElement> = (e) => {
+    if (e.currentTarget.innerText === selectedDistrict) {
+      setDistrict(undefined)
+      return
+    }
+    setDistrict(e.currentTarget.innerText as District)
+  }
+
+  return (
+    <div className={cx('selector')}>
+      {DISTRICT.map((district) => (
+        <button
+          className={cx('button', { selected: selectedDistrict === district })}
+          key={district}
+          onClick={handleSelectFilter}
+        >
+          {district}
+        </button>
+      ))}
+    </div>
+  )
+}
 
 export default Selector

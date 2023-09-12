@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction } from 'react'
+import { FC } from 'react'
 import {
   Area,
   Bar,
@@ -19,7 +19,7 @@ import CustomTooltip from './CustomTooltip'
 
 interface ChartProps {
   selectedValue?: string
-  setFilter: Dispatch<SetStateAction<District | undefined>>
+  setFilter: (district: District | undefined) => void
 }
 
 const Chart: FC<ChartProps> = ({ selectedValue, setFilter }) => {
