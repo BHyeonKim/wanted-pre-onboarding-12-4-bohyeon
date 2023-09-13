@@ -1,27 +1,15 @@
-# React + TypeScript + Vite
+# Simple chart
+원티드 프리온보딩 인터십 8월 4째주 과제 결과물 (시계열 차트) 입니다.
+[배포링크](https://main--jovial-gelato-27d146.netlify.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 구현사항
+1. 시계열 차트 구현
+Area 그래프와 Bar 그래프가 존재하는 복합 그래프를 구현 하였으며 왼쪽 Y축은 Bar, 오른쪽 Y축은 Area를 나타냅니다.
+2. 호버 기능 구현
+차트에 마우스를 호버하면 헤당하는 시간의 Area와 Bar 정보가 나타납니다.
+3. 필터링 구현
+차트의 특정 영역을 클릭하거나 버튼으로 구역을 선택을 하면 차트에서 하이라이트 됩니다.
+## 라이브러리
+- recharts : 차트를 구현하기 위해 사용하였습니다.
+- msw : api를 모킹하기 위해 사용하였습니다.
