@@ -2,7 +2,9 @@
 
 .selector {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+  padding: 10px 4px;
 
   .button {
     height: 24px;

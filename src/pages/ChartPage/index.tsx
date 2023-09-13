@@ -14,12 +14,12 @@ const ChartPage = () => {
 
   return (
     <div className={cx('page')}>
-      <Chart data={data} selectedValue={district} setFilter={setDistrict} />
       <Selector
         districts={districts}
         selectedDistrict={district}
         setDistrict={setDistrict}
       />
+      <Chart data={data} selectedValue={district} setFilter={setDistrict} />
     </div>
   )
 }
