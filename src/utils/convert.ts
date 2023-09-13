@@ -1,11 +1,10 @@
-import { MOCK_DATA } from 'mocks/mock'
 import { ConvertedData, MockData } from 'types'
 
 export const convertData = (data: MockData['response']) => {
   const dataConvertedToArray: ConvertedData[] = []
 
   for (const date in data) {
-    const { id, value_area, value_bar } = MOCK_DATA[date]
+    const { id, value_area, value_bar } = data[date]
 
     dataConvertedToArray.push({
       date: date,
