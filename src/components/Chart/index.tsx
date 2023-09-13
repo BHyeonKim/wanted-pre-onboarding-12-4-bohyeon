@@ -4,7 +4,6 @@ import {
   Bar,
   Cell,
   ComposedChart,
-  Legend,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -41,10 +40,18 @@ const Chart: FC<ChartProps> = ({ selectedValue, setFilter, data }) => {
   return (
     <ResponsiveContainer height={400}>
       <ComposedChart data={data} onClick={handleClickChart}>
-        <XAxis dataKey="date" tickFormatter={(value: string) => convertDate(value)} />
-        <YAxis dataKey="bar" yAxisId="bar" />
-        <YAxis dataKey="area" orientation="right" yAxisId="area" />
-        <Legend />
+        <XAxis dataKey="date" tickFormatter={convertDate} />
+        <YAxis
+          dataKey="bar"
+          label={{ value: 'bar', angle: -90, position: 'insideLeft' }}
+          yAxisId="bar"
+        />
+        <YAxis
+          dataKey="area"
+          label={{ value: 'area', angle: 90, postion: 'insideRight' }}
+          orientation="right"
+          yAxisId="area"
+        />
         <Bar barSize={10} dataKey="bar" yAxisId="bar">
           {data &&
             data.map((entry) => (
